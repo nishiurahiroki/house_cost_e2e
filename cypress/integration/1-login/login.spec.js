@@ -5,11 +5,19 @@ describe('ログイン画面', () => {
     cy.visit('http://localhost:3000')
   })
 
-  it('ログイン出来るかテスト', () => {
+  // it('ログイン出来るかテスト', () => {
+  //   cy.get('#mail-address').type('nishiurahiroki@gmail.com')
+  //   cy.get('#password').type('********')
+  //   cy.get('button').contains('ログイン').click()
+
+  //   cy.get('h6').contains('出費入力')
+  // })
+
+  it('ログイン失敗時にエラーメッセージが表示されるか確認するテスト', () => {
     cy.get('#mail-address').type('nishiurahiroki@gmail.com')
     cy.get('#password').type('********')
     cy.get('button').contains('ログイン').click()
 
-    cy.get('h6').contains('出費入力')
+    cy.get('#successMessage').contains('ログインに失敗しました')
   })
 })
