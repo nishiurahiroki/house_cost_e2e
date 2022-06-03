@@ -5,13 +5,15 @@ describe('収入入力画面', () => {
     cy.get('#mail-address').type('nishiurahiroki@gmail.com')
     cy.get('#password').type('P@ssword1234')
     cy.get('button').contains('ログイン').click()
+    cy.get('button[aria-label=Menu]').click()
+    cy.get('span').contains('収入入力').click()
   })
 
   it('正常に登録出来るか確認するテスト', () => {
-    // const inputCost = 20000
+    const inputIncome = 20000
 
-    // cy.get('#costAmount').type(inputCost)
-    // cy.get('button.MuiButtonBase-root-53.MuiButton-root-197.MuiButton-contained-208.MuiButton-containedPrimary-209.MuiButton-raised-211.MuiButton-raisedPrimary-212').click()
-    // cy.get('#successMessage').should('have.text', '登録しました')
+    cy.get('#costAmount').type(inputIncome)
+    cy.get('button').contains('登録').click()
+    cy.get('#successMessage').should('have.text', '登録しました')
   })
 })
