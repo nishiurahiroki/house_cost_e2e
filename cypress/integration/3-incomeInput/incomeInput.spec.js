@@ -16,4 +16,8 @@ describe('収入入力画面', () => {
     cy.get('button').contains('登録').click()
     cy.get('#successMessage').should('have.text', '登録しました')
   })
+
+  it('収入内容プルダウンの内容が画面に表示されている事を確認するテスト', () => {
+    cy.get('#costTypes[value=1]').should('be.hidden')
+  })
 })
